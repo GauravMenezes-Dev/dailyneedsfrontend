@@ -3,39 +3,28 @@ import { Link } from "react-router-dom";
 import brand from "../assets/nunu_milk.png";
 
 const NavBar = () => (
-  <div className="container is-fluid has-background-blue mb-2">
-    <nav className="level">
-      <Link
-        to="/"
-        className="level-item has-text-centered has-background-white has-text-black button mx-1 link is-info"
-      >
-        Home
-      </Link>
-      <Link
-        to="/orders"
-        className="level-item has-text-centered has-background-white has-text-black button mx-1 link is-info"
-      >
-        Order
-      </Link>
+  <div className="container is-fluid mb-4">
+    <nav className="level has-background-blue">
+      <LinkItem url="/" text="Home" />
+      <LinkItem url="/orders" text="Orders" />
       <Link to="/">
         <p className="level-item has-background-white has-text-black has-text-centered">
           <img src={brand} alt="" style={{ height: "120px" }} />
         </p>
       </Link>
-      <Link
-        to="/bill"
-        className="link is-info has-background-white has-text-black level-item has-text-centered button mx-1"
-      >
-        Billing
-      </Link>
-      <Link
-        to="/contact"
-        className="link is-info level-item has-background-white has-text-black has-text-centered button mx-1"
-      >
-        Contact
-      </Link>
+      <LinkItem url="/bill" text="Billing" />
+      <LinkItem url="/contact" text="Contacts" />
     </nav>
   </div>
+);
+
+const LinkItem = ({ url, text }) => (
+  <Link
+    to={url}
+    className="level-item has-text-centered has-background-white has-text-black button is-light mx-1 link is-info"
+  >
+    {text}
+  </Link>
 );
 
 export default NavBar;

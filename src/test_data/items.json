@@ -1,0 +1,44 @@
+{
+  "milk": [
+    {
+      "name": "Nunu Milk 250g",
+      "price": 12.5
+    },
+    {
+      "name": "Nunu Milk 500g",
+      "price": 23.0
+    },
+    {
+      "name": "Nunu Milk Xtra Creamy",
+      "price": 15.0
+    }
+  ],
+  "bread": [
+    {
+      "name": "Nunu Milk Bread 250g",
+      "price": 40.0
+    },
+    {
+      "name": "Nunu Whole Wheat Bread 250g",
+      "price": 50.0
+    },
+    {
+      "name": "Nunu Multigrain Bread 250g",
+      "price": 50.0
+    }
+  ],
+  "water": [
+    {
+      "name": "Bisleri 1l",
+      "price": 15.0
+    },
+    {
+      "name": "Aquapure 1l",
+      "price": 15.0
+    },
+    {
+      "name": "Nunur Jol 1l",
+      "price": 15.0
+    }
+  ]
+}
