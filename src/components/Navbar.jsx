@@ -1,22 +1,27 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { createStructuredSelector } from "reselect";
 import brand from "../assets/nunu_milk.png";
+import { selectCurrentUser } from "../redux/users/selector";
 
-const NavBar = () => (
-  <div className="container is-fluid mb-4">
-    <nav className="level has-background-blue">
-      <LinkItem url="/" text="Home" />
-      <LinkItem url="/orders" text="Orders" />
-      <Link to="/">
-        <p className="level-item has-background-white has-text-black has-text-centered">
-          <img src={brand} alt="" style={{ height: "120px" }} />
-        </p>
-      </Link>
-      <LinkItem url="/bill" text="Billing" />
-      <LinkItem url="/contact" text="Contacts" />
-    </nav>
-  </div>
-);
+const NavBar = ({ curUser }) => {
+  return curUser ? (
+    <div className="container is-fluid mb-4">
+      <nav className="level has-background-blue">
+        <LinkItem url="/" text="Home" />
+        <LinkItem url="/orders" text="Orders" />
+        <Link to="/">
+          <p className="level-item has-background-white has-text-black has-text-centered">
+            <img src={brand} alt="" style={{ height: "120px" }} />
+          </p>
+        </Link>
+        <LinkItem url="/bill" text="Billing" />
+        <LinkItem url="/contact" text="Contacts" />
+      </nav>
+    </div>
+  ) : null;
+};
 
 const LinkItem = ({ url, text }) => (
   <Link
@@ -27,4 +32,9 @@ const LinkItem = ({ url, text }) => (
   </Link>
 );
 
-export default NavBar;
+const mstp = () =>
+  createStructuredSelector({
+    curUser: selectCurrentUser,
+  });
+
+export default connect(mstp)(NavBar);
